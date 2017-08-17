@@ -131,7 +131,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button_calibration"
+            android:id="@+id/stop_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
