@@ -304,5 +304,5 @@
     <!-- 石灰色 -->
     <color name="blankgray_opaque">#ffbbbbbb</color>
     <!-- 石灰色不透明 -->
-
+    <color name="colorD9Gray">#d9d9d9</color>
 </resources>

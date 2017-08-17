@@ -1,6 +1,7 @@
 package com.senssun.bluetooth.tools.entity;
 
 import android.bluetooth.BluetoothDevice;
+
 public class BluetoothDeviceObject {
 	private BluetoothDevice device;
 	private int rssi;

@@ -170,6 +170,7 @@ public class BluetoothPressureScanActivity extends Activity {
 				final Intent intent = new Intent(BluetoothPressureScanActivity.this, BluetoothPressureControlActivity.class);
 				intent.putExtra(BluetoothPressureControlActivity.EXTRAS_DEVICE_ADDRESS, device.getDevice().getAddress());
 				intent.putExtra(BluetoothPressureControlActivity.EXTRAS_DEVICE_NAME, device.getDevice().getName());
+
 				if (mScanning) {
 					mBluetoothAdapter.stopLeScan(mLeScanCallback);
 					mScanning = false;

@@ -29,68 +29,95 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_device_address"
+                        android:textSize="18sp" />
 
+                    <Space
+                        android:layout_width="5dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/device_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_state"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/connection_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/disconnected"
+                        android:textSize="18sp" />
+
+                    <Space
+                        android:layout_width="5dp"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="信号:"
+                        android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/rssi_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_data"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <widget.WheelView
+                android:id="@+id/time_interval"
+                android:layout_width="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:layout_height="70dp"
+                typeface="4"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_device_address"
-                android:textSize="18sp" />
+                android:layout_gravity="center_vertical"
+                android:textSize="15sp"
+                android:layout_marginRight="5dp"
+                android:text="ms"/>
 
-            <Space
-                android:layout_width="5dp"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/device_address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_state"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/connection_state"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/disconnected"
-                android:textSize="18sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="信号:"
-                android:textSize="18sp" />
-            <TextView
-                android:id="@+id/rssi_value"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/no_data"
-                android:textSize="18sp" />
-            <Space
-                android:layout_width="5dp"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        </LinearLayout>
     </android.support.v7.widget.CardView>
 
 <LinearLayout
@@ -102,16 +129,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/button_calibration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_alignParentBottom="true"
             android:layout_margin="3dp"
-            android:text="获取数据（默认获取，点击关闭）"
-            android:textColor="@color/white"
-            android:background="@drawable/corner_backbtn"/>
+            android:layout_weight="1"
+            android:background="@drawable/corner_backbtn"
+            android:text="获取数据（点击关闭）"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/reconnect_device"
@@ -129,7 +157,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/button_zero"
+            android:id="@+id/send_interval"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -150,14 +178,8 @@
             android:id="@+id/data_from_device"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:transcriptMode="alwaysScroll"
             android:layout_weight="1"></ListView>
-
-        <ListView
-            android:id="@+id/reconnect_msg"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"></ListView>
-
     </LinearLayout>
 
 </LinearLayout>

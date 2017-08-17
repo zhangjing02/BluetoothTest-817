@@ -30,6 +30,7 @@ public interface Information {
 		public static final String USER_AGE = "userAge";
 
 		public static final String TEST_NUM = "testNum";
+		public static final String TIME_INTERVAL="Time_interval";//轮询时间间隔
 	}
 
 }

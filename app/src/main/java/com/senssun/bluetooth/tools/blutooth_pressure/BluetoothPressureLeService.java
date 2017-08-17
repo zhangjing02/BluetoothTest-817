@@ -117,6 +117,7 @@ public class BluetoothPressureLeService extends Service {
         public void onCharacteristicChanged(BluetoothGatt gatt,
                                             BluetoothGattCharacteristic characteristic) {
             broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
+            Log.i(TAG, "onCharacteristicChanged: 是否有收到数据呢？"+Arrays.toString(characteristic.getValue()));
         }
 
         @Override
@@ -132,7 +133,8 @@ public class BluetoothPressureLeService extends Service {
         }
 
         public void onReadRemoteRssi(BluetoothGatt gatt, int rssi, int status) {
-        	 broadcastUpdate(ACTION_DATA_RSSI,String.valueOf(rssi));
+            Log.i(TAG, "onReadRemoteRssi: 有收到信号么？ "+rssi);
+            broadcastUpdate(ACTION_DATA_RSSI,String.valueOf(rssi));
         }
     };
 
