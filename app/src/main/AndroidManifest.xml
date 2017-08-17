@@ -330,6 +330,13 @@
             android:name=".cocktail.CocktailBluetoothLeService"
             android:enabled="true" />
 
+        <activity android:name=".blutooth_pressure.BluetoothPressureScanActivity"
+            android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:name=".blutooth_pressure.BluetoothPressureControlActivity"
+            android:theme="@android:style/Theme.Holo.Light"/>
+        <service android:name=".blutooth_pressure.BluetoothPressureLeService"
+            android:enabled="true"/>
+
         <activity
             android:name=".aliconfigweight.ALConfigDeviceControlActivity"
             android:theme="@android:style/Theme.Holo.Light" />
