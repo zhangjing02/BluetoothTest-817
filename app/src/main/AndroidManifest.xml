@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.senssun.bluetooth.tools"
+    android:versionCode="2"
+    android:versionName="3.1">
+
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="18" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <application
+        android:name=".application.MyApp"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".IndexActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- <activity android:name=".DeviceControlActivity"/> -->
+
+        <activity
+            android:name=".fat.TestFatActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".food.TestFoodActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".food.FoodDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <activity
+            android:name=".food.FoodDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+
+        <activity
+            android:name=".food.iN8301B.iN8301BFoodDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".food.iN8301B.iN8301BFoodDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".fat.FatDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".fat.FatDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".infantscale.InfantDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".infantscale.InfantDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".jdweight.JdDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".jdweight.JdDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight.old.OldALDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight.old.OldALDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight.test.TestALDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight.test.TestALDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight.ALDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight.ALDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".pad.PadDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".pad.PadDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".weight.TestWeightActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".bleweight.BleWeightDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".bleweight.BleWeightDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".jdweight.TastJDWeightActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".eight_electrodes.TestEightFatActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".JustHere.TestJustHereActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight_new.ALNewDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight_new.ALNewDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight_health_new.ALHealthNewDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight_health_new.ALHealthNewDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight_new.liang.LiangALNewDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight_new.liang.LiangALNewDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight_new.liang.LiangALBleWeightDeviceControlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight_new.liang.LiangALBleWeightDeviceScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <activity
+            android:name=".senssuncloud02.DeviceScanActivity02"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".senssuncloud02.DeviceControlCloudActivity02"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+
+        <activity
+            android:name=".senssuncloud03.DeviceScanActivity03"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".senssuncloud03.DeviceControlCloudActivity03"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <service
+            android:name="cn.senssun.ble.sdk.cloud.BleCloudConnectService"
+            android:enabled="true" />
+        <service
+            android:name="cn.senssun.ble.sdk.fat.BleConnectService"
+            android:enabled="true" />
+        <service android:name=".fat.TestFatBluetoothLeService" />
+        <service android:name=".jdweight.TestJDWeightBluetoothLeService" />
+        <service android:name=".eight_electrodes.TestEightFatBluetoothLeService" />
+        <service
+            android:name=".food.FoodBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".food.iN8301B.iN8301BFoodBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".fat.FatBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".jdweight.JdBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".pad.PadBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".aliweight.old.OldALBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".aliweight.test.TestALBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".aliweight.ALBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".bleweight.BleWeightBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".aliweight_new.ALNewBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".aliweight_health_new.ALHealthNewBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".aliweight_new.liang.LiangALNewBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".mkfat.MkFatBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".infantscale.InfantBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".infantscale.InfantBluetoothLeService02"
+            android:enabled="true" />
+
+        <!-- 设置AppKey -->
+        <!--
+             <meta-data
+            android:name="TESTIN_APPKEY"
+            android:value="6d1f5eda78970105e01cde8b29ee7581" />
+        -->
+        <!-- 设置渠道信息 -->
+        <!--
+            <meta-data
+            android:name="TESTIN_CHANNEL"
+            android:value="Channel_ID" />
+        -->
+        <activity
+            android:name=".pad.PadDeviceWeighingScanActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".mkfat.MkFatDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".mkfat.MkFatDeviceScanActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".pad.PadDeviceWeighingControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".mdweight.TestMDDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".mdweight.MDDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".mdweight.MDDeviceControlActivity02"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".mdweight.MDDeviceScanActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".mdweight.MDDeviceScanActivity02"
+            android:theme="@android:style/Theme.Holo.Light"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
+
+        <service
+            android:name=".mdweight.MDBluetoothLeService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".configfatweight.ConfigDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".configfatweight.ConfigDeviceScanActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".cocktail.CocktailDeviceScanActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".cocktail.CocktailDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <service
+            android:name=".configfatweight.ConfigBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".cocktail.CocktailBluetoothLeService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".aliconfigweight.ALConfigDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliconfigweight.ALConfigDeviceScanActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <service
+            android:name=".aliconfigweight.ALConfigBluetoothLeService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".xinhai.fat.FatDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".xinhai.fat.FatDeviceScanActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <service
+            android:name=".xinhai.fat.FatBluetoothLeService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".xinhai.ali.ALDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".xinhai.ali.ALDeviceScanActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight_new.aliweght_latest.ALLatestDeviceScanActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <activity
+            android:name=".aliweight_new.aliweght_latest.ALLatestDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <service
+            android:name=".aliweight_new.aliweght_latest.ALLatestBluetoothLeService"
+            android:enabled="true" />
+
+        <service
+            android:name=".xinhai.ali.ALBluetoothLeService"
+            android:enabled="true" />
+
+        <activity android:name=".alarm.AlarmDeviceScanActivity" />
+        <activity
+            android:name=".fat.aozuo.FatAoZuoDeviceScanActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".fat.aozuo.FatAoZuoDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <service
+            android:name=".fat.aozuo.FatAoZuoBluetoothLeService"
+            android:enabled="true" />
+
+        <activity android:name=".alarm.AlarmDeviceControlActivity" />
+
+        <service
+            android:name=".alarm.AlarmBluetoothLeService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".pad.test.TestPadDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <service
+            android:name=".pad.test.TestPadBluetoothLeService"
+            android:enabled="true" />
+        <service
+            android:name=".pad.test.ScanService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".jdconfigweight.JDConfigDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".jdconfigweight.JDConfigDeviceScanActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <service
+            android:name=".jdconfigweight.JDConfigBluetoothLeService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".alarmFat.AlarmFatDeviceControlActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".alarmFat.AlarmFatDeviceScanActivity"
+            android:theme="@android:style/Theme.Holo.Light" />
+
+        <service
+            android:name=".alarmFat.AlarmFatBluetoothLeService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".classify.ALActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".classify.BodyScaleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".classify.NutritionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".classify.WaterCoasterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".classify.MideaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".classify.BodyConfigActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".classify.AlarmClockActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".infantscale.BabyMode"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light" />
+        <activity
+            android:name=".aliweight_new.aliweght_latest.SettingActivity"
+            android:theme="@android:style/Theme.Holo.Light"></activity>
+        <activity android:name=".babyscale.BabylScaleScanActivity"
+            android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:name=".babyscale.DeviceControlGrowthActivity"
+            android:theme="@android:style/Theme.Holo.Light"/>
+        <service
+            android:name="cn.senssun.ble.sdk.grow.BleGrowConnectService"
+            android:enabled="true" />
+    </application>
+
+</manifest>

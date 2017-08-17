@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+     Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+-->
+<resources>
+
+    <string name="app_name">V1009生产测试工具</string>
+    <string name="ble_not_supported">此手机不支持蓝牙4.0BLE，BLE is not supported</string>
+    <string name="label_data">显示数据:</string>
+    <string name="weight_data">体重数据:</string>
+    <string name="adult_data">成人体重:</string>
+    <string name="baby_data">婴儿体重:</string>
+    <string name="label_device_address">设备地址:</string>
+    <string name="label_device_name">设备名称:</string>
+    <string name="label_state">连接状态:</string>
+    <string name="no_data">没有数据显示</string>
+    <string name="no_show">0kg</string>
+    <string name="connected">连接成功</string>
+    <string name="disconnected">连接失败</string>
+    <string name="title_devices">BLE Device Scan</string>
+    <string name="error_bluetooth_not_supported">蓝牙不支持Bluetooth not supported.</string>
+    <string name="unknown_device">不能识别设备</string>
+    <string name="unknown_characteristic">Unknown characteristic</string>
+    <string name="unknown_service">Unknown service</string>
+
+    <string name="toast_close_device_failed">关闭设备失败！</string>
+
+    <!-- Menu items -->
+    <string name="menu_back">返回</string>
+    <string name="menu_back_weight">人体秤</string>
+    <string name="menu_back_bleweight">BLE人体秤</string>
+    <string name="menu_back_cocktail">鸡尾酒秤</string>
+    <string name="menu_back_babyscale">婴儿秤</string>
+    <string name="menu_back_fat">脂肪秤</string>
+    <string name="menu_back_infant">飞鹤抱婴秤</string>
+    <string name="menu_back_mkfat">玫琳凯脂肪秤</string>
+    <string name="menu_back_food">营养秤</string>
+    <string name="menu_back_food_in8301b">营养秤(iN8301B)</string>
+    <string name="menu_back_ali">阿里秤</string>
+    <string name="menu_back_ali_old">阿里秤(旧)</string>
+    <string name="menu_back_ali_test">阿里秤(测试)</string>
+    <string name="menu_back_ali_new">阿里秤(新版阿里协议)EF987i</string>
+    <string name="menu_back_ali_latest">阿里秤(最新版)EF987i</string>
+    <string name="menu_back_ali_new_health">阿里秤(云端版秤)EF987i</string>
+    <string name="menu_back_ali_new_liang">阿里秤(新版阿里协议)IB06A</string>
+    <string name="menu_back_jd">京东人体秤</string>
+    <string name="menu_back_eight_weight">八电极体脂秤</string>
+    <string name="menu_back_infant_weight">婴儿秤</string>
+    <string name="menu_back_pad_standard">饮水杯垫(标定)</string>
+    <string name="menu_back_pad_weighing">饮水杯垫(秤重)</string>
+    <string name="menu_back_md_weight">美的体脂秤</string>
+    <string name="menu_back_md_weight_test">美的体脂秤（测试）</string>
+    <string name="menu_back_md_weight_test02">美的体脂秤（最新测试）</string>
+    <string name="menu_back_config_fat_weight">人体秤参数配置</string>
+    <string name="menu_back_ali_config_weight">人体秤参数配置(阿里秤)</string>
+    <string name="menu_back_jd_config_weight">人体秤参数配置(京东秤)</string>
+    <string name="menu_back_aozuo_fat_weight">澳佐脂肪秤</string>
+    <string name="menu_back_alarm_weight">闹钟秤</string>
+    <string name="menu_back_alarm_fat_weight">众筹闹钟秤测试</string>
+    <string name="menu_connect">连接</string>
+    <string name="menu_disconnect">断开连接</string>
+    <string name="menu_scan">搜索</string>
+    <string name="menu_stop">停止搜索</string>
+    <string name="menu_exit">退出</string>
+    <string name="title_activity_index">IndexActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_test_weight">TestWeightActivity</string>
+    <string name="action_settings">Settings</string>
+
+
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color"></attr>
+    </declare-styleable>
+     <declare-styleable name="zdyActionBar">
+        <attr name="zdytitle" format="string" localization="suggested" />
+    </declare-styleable>
+    <declare-styleable name="StaggeredGridView">
+        <attr name="drawSelectorOnTop" format="boolean" />
+        <attr name="numColumns" format="integer" />
+        <attr name="itemMargin" format="dimension" />
+    </declare-styleable>
+
+    <attr name="visible_tab_count" format="integer"/>
+    <declare-styleable name="ViewPagerIndicator">
+        <attr name="visible_tab_count"/>
+    </declare-styleable>
+</resources>
