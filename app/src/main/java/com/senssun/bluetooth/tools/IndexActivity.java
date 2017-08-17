@@ -22,6 +22,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.senssun.bluetooth.tools.babyscale.BabylScaleScanActivity;
+import com.senssun.bluetooth.tools.blutooth_pressure.BluetoothPressureScanActivity;
 import com.senssun.bluetooth.tools.classify.ALActivity;
 import com.senssun.bluetooth.tools.classify.AlarmClockActivity;
 import com.senssun.bluetooth.tools.classify.BodyConfigActivity;
@@ -199,6 +200,10 @@ public class IndexActivity extends Activity implements OnClickListener {
                 intent.setClass(this, BabylScaleScanActivity.class);
                 startActivity(intent);
                 break;
+            case 18:
+                //蓝牙压力测试
+                intent.setClass(this, BluetoothPressureScanActivity.class);
+                startActivity(intent);
 
 //            case 7://行李追踪器
 //                intent.setClass(this, TestJustHereActivity.class);//
@@ -326,6 +331,13 @@ public class IndexActivity extends Activity implements OnClickListener {
         map.put("title", "婴儿秤");
         map.put("info", "型号：iR721B");
         map.put("image", R.drawable.baby_scale);
+        list.add(map);
+
+
+        map=new HashMap<>();
+        map.put("title","蓝牙压力测试");
+        map.put("info","型号：XXXXX");
+        map.put("image",R.drawable.pressuretest );
         list.add(map);
 
 

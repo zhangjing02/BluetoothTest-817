@@ -69,6 +69,9 @@
     <string name="menu_back_aozuo_fat_weight">澳佐脂肪秤</string>
     <string name="menu_back_alarm_weight">闹钟秤</string>
     <string name="menu_back_alarm_fat_weight">众筹闹钟秤测试</string>
+
+    <string name="menu_back_pressure">蓝牙压力测试</string>
+
     <string name="menu_connect">连接</string>
     <string name="menu_disconnect">断开连接</string>
     <string name="menu_scan">搜索</string>
