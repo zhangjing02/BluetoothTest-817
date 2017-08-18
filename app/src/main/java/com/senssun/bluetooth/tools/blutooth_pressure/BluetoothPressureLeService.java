@@ -122,13 +122,13 @@ public class BluetoothPressureLeService extends Service {
 
         @Override
         public void onCharacteristicWrite(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
-            byte[] data=characteristic.getValue();
-            StringBuffer sb=new StringBuffer(data.length);
-            for(byte byteChar : data){
-                String ms=String.format("%02X ", byteChar).trim();
-                sb.append(ms);
-            }
-            Log.i(TAG,"onCharacteristicWrite  status: " + status + ", data:" + Arrays.toString(characteristic.getValue())+" \n data:"+ sb.toString());
+//            byte[] data=characteristic.getValue();
+//            StringBuffer sb=new StringBuffer(data.length);
+//            for(byte byteChar : data){
+//                String ms=String.format("%02X ", byteChar).trim();
+//                sb.append(ms);
+//            }
+//            Log.i(TAG,"onCharacteristicWrite  status: " + status + ", data:" + Arrays.toString(characteristic.getValue())+" \n data:"+ sb.toString());
             super.onCharacteristicWrite(gatt, characteristic, status);
         }
 
