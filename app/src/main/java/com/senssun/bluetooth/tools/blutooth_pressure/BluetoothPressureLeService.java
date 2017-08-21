@@ -81,7 +81,7 @@ public class BluetoothPressureLeService extends Service {
             if (newState == BluetoothProfile.STATE_CONNECTED) {
                 intentAction = ACTION_GATT_CONNECTED;
                 mConnectionState = STATE_CONNECTED;
-                broadcastUpdate(intentAction);
+              //  broadcastUpdate(intentAction);
                 Log.i(TAG, "Connected to GATT server.");
                 // Attempts to discover services after successful connection.
                 Log.i(TAG, "Attempting to start service discovery:" +
@@ -122,13 +122,13 @@ public class BluetoothPressureLeService extends Service {
 
         @Override
         public void onCharacteristicWrite(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
-            byte[] data=characteristic.getValue();
-            StringBuffer sb=new StringBuffer(data.length);
-            for(byte byteChar : data){
-                String ms=String.format("%02X ", byteChar).trim();
-                sb.append(ms);
-            }
-            Log.i(TAG,"onCharacteristicWrite  status: " + status + ", data:" + Arrays.toString(characteristic.getValue())+" \n data:"+ sb.toString());
+//            byte[] data=characteristic.getValue();
+//            StringBuffer sb=new StringBuffer(data.length);
+//            for(byte byteChar : data){
+//                String ms=String.format("%02X ", byteChar).trim();
+//                sb.append(ms);
+//            }
+//            Log.i(TAG,"onCharacteristicWrite  status: " + status + ", data:" + Arrays.toString(characteristic.getValue())+" \n data:"+ sb.toString());
             super.onCharacteristicWrite(gatt, characteristic, status);
         }
 
@@ -318,9 +318,12 @@ public class BluetoothPressureLeService extends Service {
         	if (descriptor == null)return ;
             descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
             mBluetoothGatt.writeDescriptor(descriptor);
-    }
 
-    
+        //获得通知征值，再发送连接成功的按钮！
+        String intentAction = ACTION_GATT_CONNECTED;
+        broadcastUpdate(intentAction);
+
+    }
     public boolean writeCharacteristic(BluetoothGattCharacteristic characteristic) {
 
         return mBluetoothGatt.writeCharacteristic(characteristic);

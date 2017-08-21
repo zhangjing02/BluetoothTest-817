@@ -100,14 +100,23 @@
                         android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
-            <widget.WheelView
+            <!--<widget.WheelView-->
+                <!--android:id="@+id/time_interval"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_height="70dp"-->
+                <!--typeface="4"-->
+                <!--/>-->
+            <EditText
                 android:id="@+id/time_interval"
-                android:layout_width="0dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:layout_height="70dp"
-                typeface="4"
-                />
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:text="10"
+                android:hint="延时毫秒数"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,7 +140,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button_calibration"
+            android:id="@+id/stop_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
