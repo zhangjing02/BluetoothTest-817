@@ -44,6 +44,8 @@ import com.senssun.bluetooth.tools.entity.BluetoothDeviceObject;
 import com.senssun.bluetooth.tools.relative.Information;
 import com.senssun.bluetooth.tools.relative.WheelViewSelect;
 
+import org.zackratos.ultimatebar.UltimateBar;
+
 import java.util.ArrayList;
 
 import widget.TosAdapterView;
@@ -118,6 +120,12 @@ public class BluetoothPressureScanActivity extends Activity {
 				editor.commit();
 			}
 		});
+
+
+		UltimateBar ultimateBar = new UltimateBar(this);
+
+		ultimateBar.setColorBar(getResources().getColor(R.color.powderblue), 50);
+
 	}
 
 	@Override

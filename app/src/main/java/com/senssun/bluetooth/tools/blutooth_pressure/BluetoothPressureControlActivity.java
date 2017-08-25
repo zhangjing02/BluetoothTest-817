@@ -43,8 +43,11 @@ import android.widget.Toast;
 import com.senssun.bluetooth.tools.R;
 import com.senssun.bluetooth.tools.relative.Information;
 
+import org.zackratos.ultimatebar.UltimateBar;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -103,6 +106,10 @@ public class BluetoothPressureControlActivity extends Activity implements View.O
     private boolean isSending = false;
     private boolean isReconnect_test = false;
     private long do_connect_time, connet_time, send_time, recieve_time, do_disconnet_time, disconnect_time;
+    private String send_msg;
+    private int correct_num,error_num,loss_num;
+    private long send_time_l;
+    private boolean isRecieve_msg=false;
 
     public final static byte[] sendBuffer_zero = new byte[]{(byte) Integer.parseInt("A5", 16), (byte) Integer.parseInt("00", 16),
             (byte) Integer.parseInt("00", 16), (byte) Integer.parseInt("A1", 16), (byte) Integer.parseInt("A1", 16)
@@ -206,6 +213,7 @@ public class BluetoothPressureControlActivity extends Activity implements View.O
         }
     };
 
+
     private void clearUI() {
 //		mDataField.setText(R.string.no_data);
     }
@@ -291,6 +299,8 @@ public class BluetoothPressureControlActivity extends Activity implements View.O
 //        });
 //        projectWheel.setSelection(time_interval);
 
+        UltimateBar ultimateBar = new UltimateBar(this);
+        ultimateBar.setColorBar(getResources().getColor(R.color.powderblue), 50);
     }
 
     private void displayData(String data) {
@@ -304,20 +314,31 @@ public class BluetoothPressureControlActivity extends Activity implements View.O
                 map.put("data", data);
                 Log.i("ttttt", "006下发断开");
                 mBluetoothLeService.disconnect();
-
             }
         } else {
             if (data != null) {
+                isRecieve_msg=true;
                 String[] strdata = data.split("-");
                 Log.e("Notification", data);
+                Log.i("hhhhhhhh", send_msg.substring(34,36)+"displayData: 我们对比两个收发"+strdata[17]);
+                if (send_msg.substring(34,36).equals(strdata[17])){
+                    correct_num++;
+                }else {
+                    error_num++;
+                }
                 map = new HashMap<>();
                 // calendar=Calendar.getInstance();
                 date = new Date();
                 String bb = sdf.format(date);
                 map.put("date", bb + "  毫秒:" + date.getTime());
-                map.put("data", data);
+                map.put("data", data+"--正确:"+correct_num+"--错误:"+error_num+"-丢包:"+loss_num);
                 datalist.add(map);
                 mShowAdapter.notifyDataSetChanged();
+                if (datalist.size()>=100){
+                    Toast.makeText(BluetoothPressureControlActivity.this, "测试100次完成。", Toast.LENGTH_SHORT).show();
+                    TimerOne.cancel();
+                    mBluetoothLeService.disconnect();
+                }
             }
         }
 
@@ -343,6 +364,7 @@ public class BluetoothPressureControlActivity extends Activity implements View.O
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
         unbindService(mServiceConnection);
         mBluetoothLeService = null;
     }
@@ -374,6 +396,7 @@ public class BluetoothPressureControlActivity extends Activity implements View.O
                 mBluetoothLeService.disconnect();
                 return true;
             case android.R.id.home:
+                mBluetoothLeService.disconnect();
                 onBackPressed();
                 return true;
         }
@@ -472,13 +495,13 @@ public class BluetoothPressureControlActivity extends Activity implements View.O
 //            }
 
             /*这是声荣的模块的写特征值*/
-            if (gattService.getUuid().toString().equals("00001910-0000-1000-8000-00805f9b34fb")) {
+            if (gattService.getUuid().toString().equals("0000fff0-0000-1000-8000-00805f9b34fb")) {
                 List<BluetoothGattCharacteristic> gattCharacteristics = gattService.getCharacteristics();
                 for (BluetoothGattCharacteristic characteristic : gattCharacteristics) {
-                    if (characteristic.getUuid().toString().trim().equals("00002c11-0000-1000-8000-00805f9b34fb")) {
+                    if (characteristic.getUuid().toString().trim().equals("0000fff2-0000-1000-8000-00805f9b34fb")) {
                         mWriteCharacteristic = characteristic;
                     }
-                    if (characteristic.getUuid().toString().trim().equals("00002c12-0000-1000-8000-00805f9b34fb")) {
+                    if (characteristic.getUuid().toString().trim().equals("0000fff1-0000-1000-8000-00805f9b34fb")) {
                         mBluetoothLeService.setCharacteristicNotification(characteristic, true);
                         mNotifyCharacteristic = characteristic;
                     }
@@ -532,13 +555,14 @@ public class BluetoothPressureControlActivity extends Activity implements View.O
                 }
             }
         }
-//        StringBuffer sb=new StringBuffer(cmd.length);
-//        for(byte byteChar : cmd){
-//            String ms=String.format("%02X ", byteChar).trim();
-//            sb.append(ms);
-//        }
-//        Log.i("hhhhhhh", "onCreate: 我们转化为十进制是："+ Arrays.toString(cmd));
-//        Log.i("hhhhhhh", "onCreate: 我们转化为十六进制是："+ sb.toString());
+        StringBuffer sb=new StringBuffer(cmd.length);
+        for(byte byteChar : cmd){
+            String ms=String.format("%02X ", byteChar).trim();
+            sb.append(ms);
+        }
+        Log.i("hhhhhhh", "onCreate: 我们转化为十进制是："+ Arrays.toString(cmd));
+        Log.i("hhhhhhh", "onCreate: 我们转化为十六进制是："+ sb.toString());
+       send_msg=sb.toString();
         return cmd;
     }
 
@@ -577,6 +601,9 @@ public class BluetoothPressureControlActivity extends Activity implements View.O
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.send_interval:
+                correct_num=0;
+                error_num=0;
+                loss_num=0;
                 intervalSend();
                 break;
             case R.id.stop_btn:
@@ -598,7 +625,7 @@ public class BluetoothPressureControlActivity extends Activity implements View.O
                 mShowAdapter.notifyDataSetChanged();
                 if (!mConnected) {
                     Log.i("ttttt", "002开始操作");
-                    count = 0;
+                    count = 1;
                     do_connect_time = System.currentTimeMillis();
                     isReconnect_test = true;
                     mBluetoothLeService.connect(mDeviceAddress);
@@ -618,21 +645,31 @@ public class BluetoothPressureControlActivity extends Activity implements View.O
             isSending = false;
         } else {
             if (!isSending) {
-                count = 0;
+                count = 1;
                 TimerOne.schedule(new TimerTask() {
                     @Override
                     public void run() {
                         if (mWriteCharacteristic != null) {
+                            if (!isRecieve_msg){
+                                loss_num++;
+                            }
                             isSending = true;
                             if (mConnected) {
                                 //这是CZJK手环的写入
                                 //mWriteCharacteristic.setValue(sendCmd(CMD_ID_GET, KEY_GET_LIVE_DATA, count));
 
                                 //声荣模块的写入1-----03,01
-                                mWriteCharacteristic.setValue(sendCmd4SR_test1(GUIDE_CODE, LENTH, count));
-                                count++;
-                                Log.i("hhhhhhhhhhh", "onClick: 我们当前的时间间隔是？" + time_interval);
-                                mBluetoothLeService.writeCharacteristic(mWriteCharacteristic);
+                                if (count>=10){
+                                    count=1;
+                                }else {
+                                    mWriteCharacteristic.setValue(sendCmd4SR_test1(GUIDE_CODE, LENTH, count));
+                                    count++;
+                                    isRecieve_msg=false;
+                                   send_time_l=System.currentTimeMillis();
+                                    mBluetoothLeService.writeCharacteristic(mWriteCharacteristic);
+                                }
+
+
                             } else {
                                 isSending = false;
                                 if (TimerOne != null) {

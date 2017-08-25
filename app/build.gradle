@@ -26,4 +26,5 @@ dependencies {
     compile 'com.android.support:cardview-v7:22.2.1'
     compile 'com.tencent.bugly:crashreport:latest.release'
     compile files('libs/sdk3.2.jar')
+    compile 'org.zackratos:ultimatebar:1.0.3'
 }
